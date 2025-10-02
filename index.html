@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MilkoSys Apps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #0a3d62;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 50px 10%;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      margin: 10px 0;
+      font-size: 1.4rem;
+      color: #0a3d62;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    .download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #0a3d62;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .download-btn:hover {
+      background: #1e5799;
+    }
+    section.details {
+      padding: 50px 10%;
+    }
+    section.details h2 {
+      font-size: 2rem;
+      color: #0a3d62;
+      margin-bottom: 15px;
+    }
+    section.details p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    footer {
+      background: #0a3d62;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    footer p {
+      margin: 5px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to MilkoSys</h1>
+    <p>One platform for Dairy Owners, Customers, and Delivery Heroes</p>
+  </header>
+
+  <!-- Dairy App -->
+<div class="card">
+    <img src="dairy-logo.png" alt="MilkoSys Dairy">
+    <h2>MilkoSys Dairy</h2>
+    <p>Smart management app for dairies with billing, orders & inventory.</p>
+    <a href="https://example.com/milkosys_dairy.apk" class="download-btn" download>
+      Download APK
+    </a>
+  </div>
+  
+  <!-- User App -->
+  <div class="card">
+    <img src="logo-user.png" alt="MilkoSys User">
+    <h2>MilkoSys (User)</h2>
+    <p>Order fresh milk & dairy products directly from trusted dairies.</p>
+    <a href="milkosys.apk" class="download-btn" download>
+      Download APK
+    </a>
+  </div>
+  
+  <!-- Hero App -->
+  <div class="card">
+    <img src="hero-logo.png" alt="MilkoSys Hero">
+    <h2>MilkoSys Hero</h2>
+    <p>Delivery app for heroes to manage & complete daily orders.</p>
+    <a href="https://example.com/milkosys_hero.apk" class="download-btn" download>
+      Download APK
+    </a>
+  </div>
+  
+  <!-- Detailed Sections -->
+  <section id="dairy" class="details">
+    <h2>MilkoSys Dairy</h2>
+    <p>
+      MilkoSys Dairy is designed for dairy businesses to simplify daily operations.  
+      It helps in managing <b>customer orders, billing, payments, and stock</b> in one place.  
+      With this app, dairy owners can save time, avoid errors, and grow their business digitally.  
+    </p>
+    <p><b>Key Features:</b></p>
+    <ul>
+      <li>Manage customers & orders</li>
+      <li>Automated billing & receipts</li>
+      <li>Track inventory & stock</li>
+      <li>Reports & insights for growth</li>
+    </ul>
+  </section>
+
+  <section id="user" class="details">
+    <h2>MilkoSys (User)</h2>
+    <p>
+      MilkoSys (User) app connects customers directly with local dairies.  
+      Users can <b>order fresh milk, ghee, curd, and other dairy products</b> from the comfort of their home.  
+      The app ensures fast delivery, transparent pricing, and secure payments.  
+    </p>
+    <p><b>Key Features:</b></p>
+    <ul>
+      <li>Easy dairy product ordering</li>
+      <li>Track order & delivery</li>
+      <li>Multiple payment options</li>
+      <li>Discounts & offers</li>
+    </ul>
+  </section>
+
+  <section id="hero" class="details">
+    <h2>MilkoSys Hero</h2>
+    <p>
+      MilkoSys Hero is built for delivery boys (heroes) who make sure dairy products reach customers on time.  
+      It provides an easy way to <b>view assigned orders, update delivery status, and collect payments</b>.  
+      With this app, delivery becomes smooth and well-organized.  
+    </p>
+    <p><b>Key Features:</b></p>
+    <ul>
+      <li>View daily delivery tasks</li>
+      <li>Navigation & route optimization</li>
+      <li>Update order status (Delivered/Pending)</li>
+      <li>Cash & online payment support</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MilkoSys. All rights reserved.</p>
+    <p>Contact: sudhanshushekhar692004@gmail.com | +91 8228958397</p>
+  </footer>
+
+</body>
+</html>
