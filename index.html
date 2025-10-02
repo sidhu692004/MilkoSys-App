@@ -21,23 +21,24 @@
       width: 100%;
       top: 0;
       left: 0;
-      background: rgba(10, 61, 98, 0.9);
-      backdrop-filter: blur(10px);
+      background: rgba(10, 61, 98, 0.95);
+      backdrop-filter: blur(8px);
       color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 10%;
+      padding: 12px 10%;
       z-index: 1000;
     }
     nav h1 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 25px;
+      transition: left 0.3s ease;
     }
     nav ul li a {
       text-decoration: none;
@@ -47,6 +48,52 @@
     }
     nav ul li a:hover {
       color: #ffd32a;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    .hamburger span {
+      width: 26px;
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 3px;
+      transition: all 0.4s ease;
+    }
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px,5px);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px,-5px);
+    }
+
+    /* Mobile menu */
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        background: rgba(10,61,98,0.95);
+        width: 100%;
+        padding: 20px 0;
+      }
+      nav ul.active {
+        left: 0;
+      }
+      .hamburger {
+        display: flex;
+      }
     }
 
     /* Hero */
@@ -226,7 +273,7 @@
   <!-- Navbar -->
   <nav>
     <h1>MilkoSys</h1>
-    <ul>
+    <ul id="menu">
       <li><a href="#apps">Apps</a></li>
       <li><a href="#dairy">Dairy</a></li>
       <li><a href="#user">User</a></li>
@@ -234,6 +281,11 @@
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
 
   <!-- Hero Section -->
@@ -329,6 +381,15 @@
   </footer>
 
   <script>
+    // Navbar toggle
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('open');
+    });
+
     // FAQ Toggle
     document.querySelectorAll(".faq-item h3").forEach(item=>{
       item.addEventListener("click",()=>{
