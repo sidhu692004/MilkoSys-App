@@ -5,77 +5,151 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MilkoSys Apps</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #f8f9fc;
+      background: linear-gradient(135deg,#f9f9fc,#eef2f9);
       color: #333;
-      line-height: 1.6;
+      scroll-behavior: smooth;
     }
-    header {
-      background: #0a3d62;
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(10, 61, 98, 0.9);
+      backdrop-filter: blur(10px);
       color: white;
-      padding: 40px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 10%;
+      z-index: 1000;
+    }
+    nav h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color .3s;
+    }
+    nav ul li a:hover {
+      color: #ffd32a;
+    }
+
+    /* Hero */
+    header.hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       text-align: center;
+      padding: 0 10%;
+      background: linear-gradient(135deg,#0a3d62,#1e5799);
+      color: white;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    header.hero h1 {
+      font-size: 3rem;
+      animation: fadeDown 1s ease forwards;
     }
-    header p {
-      margin: 10px 0 0;
-      font-size: 1.1rem;
+    header.hero p {
+      margin-top: 15px;
+      font-size: 1.2rem;
       opacity: 0.9;
+      animation: fadeUp 1.2s ease forwards;
     }
+    header.hero .cta {
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: #ffd32a;
+      color: #0a3d62;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform .3s, box-shadow .3s;
+    }
+    header.hero .cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeDown {
+      0% {opacity:0; transform: translateY(-30px);}
+      100% {opacity:1; transform: translateY(0);}
+    }
+    @keyframes fadeUp {
+      0% {opacity:0; transform: translateY(30px);}
+      100% {opacity:1; transform: translateY(0);}
+    }
+
+    /* Apps */
     .apps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
       gap: 25px;
-      padding: 50px 10%;
+      padding: 80px 10%;
     }
     .card {
       background: white;
-      border-radius: 16px;
-      padding: 25px;
+      border-radius: 18px;
+      padding: 30px 20px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      transition: transform .3s, box-shadow .3s;
+      animation: fadeUp 1s ease forwards;
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.15);
     }
     .card img {
-      width: 120px;
-      height: 120px;
-      object-fit: contain;
-      margin-bottom: 20px;
+      width: 110px;
+      height: 110px;
+      margin-bottom: 15px;
     }
     .card h2 {
-      margin: 10px 0;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: #0a3d62;
+      margin-bottom: 10px;
     }
     .card p {
-      font-size: 0.95rem;
+      font-size: .95rem;
       color: #666;
+      min-height: 60px;
     }
     .download-btn {
       display: inline-block;
       margin-top: 15px;
-      padding: 10px 20px;
+      padding: 10px 22px;
       background: #0a3d62;
       color: white;
-      text-decoration: none;
       border-radius: 8px;
-      transition: background 0.3s;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background .3s;
     }
     .download-btn:hover {
       background: #1e5799;
     }
+
+    /* Details Section */
     section.details {
-      padding: 50px 10%;
+      padding: 60px 10%;
+      animation: fadeUp 1s ease forwards;
     }
     section.details h2 {
       font-size: 2rem;
@@ -84,69 +158,117 @@
     }
     section.details p {
       font-size: 1rem;
-      color: #444;
       margin-bottom: 20px;
     }
+    section.details ul {
+      list-style: none;
+    }
+    section.details ul li {
+      margin-bottom: 10px;
+    }
+    section.details ul li:before {
+      content: "✔ ";
+      color: #0a3d62;
+      font-weight: bold;
+    }
+
+    /* FAQ */
+    .faq {
+      background: #f1f5f9;
+      padding: 60px 10%;
+    }
+    .faq h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0a3d62;
+    }
+    .faq-item {
+      margin-bottom: 20px;
+    }
+    .faq-item h3 {
+      font-size: 1.2rem;
+      color: #0a3d62;
+      cursor: pointer;
+    }
+    .faq-item p {
+      display: none;
+      margin-top: 10px;
+      color: #444;
+    }
+
+    /* Footer */
     footer {
       background: #0a3d62;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 30px 15px;
     }
     footer p {
       margin: 5px;
-      font-size: 0.9rem;
       opacity: 0.8;
+    }
+    .socials {
+      margin-top: 10px;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: white;
+      font-size: 1.2rem;
+      transition: color .3s;
+    }
+    .socials a:hover {
+      color: #ffd32a;
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- Navbar -->
+  <nav>
+    <h1>MilkoSys</h1>
+    <ul>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#dairy">Dairy</a></li>
+      <li><a href="#user">User</a></li>
+      <li><a href="#hero">Hero</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
     <h1>Welcome to MilkoSys</h1>
-    <p>One platform for Dairy Owners, Customers, and Delivery Heroes</p>
+    <p>One platform for Dairy Owners, Customers & Delivery Heroes</p>
+    <a href="#apps" class="cta">Explore Apps</a>
   </header>
 
-  <!-- Dairy App -->
-<div class="card">
-    <img src="dairy-logo.png" alt="MilkoSys Dairy">
-    <h2>MilkoSys Dairy</h2>
-    <p>Smart management app for dairies with billing, orders & inventory.</p>
-    <a href="milkosys-dairy.apk" class="download-btn" download>
-      Download APK
-    </a>
-  </div>
-  
-  <!-- User App -->
-  <div class="card">
-    <img src="logo-user.png" alt="MilkoSys User">
-    <h2>MilkoSys (User)</h2>
-    <p>Order fresh milk & dairy products directly from trusted dairies.</p>
-    <a href="milkosys-user.apk" class="download-btn" download>
-      Download APK
-    </a>
-  </div>
-  
-  <!-- Hero App -->
-  <div class="card">
-    <img src="hero-logo.png" alt="MilkoSys Hero">
-    <h2>MilkoSys Hero</h2>
-    <p>Delivery app for heroes to manage & complete daily orders.</p>
-    <a href="milkosys-hero.apk" class="download-btn" download>
-      Download APK
-    </a>
-  </div>
-  
-  <!-- Detailed Sections -->
+  <!-- Apps Showcase -->
+  <section id="apps" class="apps">
+    <div class="card">
+      <img src="dairy-logo.png" alt="MilkoSys Dairy">
+      <h2>MilkoSys Dairy</h2>
+      <p>Smart management app for dairies with billing, orders & inventory.</p>
+      <a href="milkosys-dairy.apk" class="download-btn" download>Download APK</a>
+    </div>
+    <div class="card">
+      <img src="logo-user.png" alt="MilkoSys User">
+      <h2>MilkoSys (User)</h2>
+      <p>Order fresh milk & dairy products directly from trusted dairies.</p>
+      <a href="milkosys-user.apk" class="download-btn" download>Download APK</a>
+    </div>
+    <div class="card">
+      <img src="hero-logo.png" alt="MilkoSys Hero">
+      <h2>MilkoSys Hero</h2>
+      <p>Delivery app for heroes to manage & complete daily orders.</p>
+      <a href="milkosys-hero.apk" class="download-btn" download>Download APK</a>
+    </div>
+  </section>
+
+  <!-- Details Sections -->
   <section id="dairy" class="details">
     <h2>MilkoSys Dairy</h2>
-    <p>
-      MilkoSys Dairy is designed for dairy businesses to simplify daily operations.  
-      It helps in managing <b>customer orders, billing, payments, and stock</b> in one place.  
-      With this app, dairy owners can save time, avoid errors, and grow their business digitally.  
-    </p>
-    <p><b>Key Features:</b></p>
+    <p>Manage customer orders, billing, payments & stock with ease.</p>
     <ul>
       <li>Manage customers & orders</li>
       <li>Automated billing & receipts</li>
@@ -157,12 +279,7 @@
 
   <section id="user" class="details">
     <h2>MilkoSys (User)</h2>
-    <p>
-      MilkoSys (User) app connects customers directly with local dairies.  
-      Users can <b>order fresh milk, ghee, curd, and other dairy products</b> from the comfort of their home.  
-      The app ensures fast delivery, transparent pricing, and secure payments.  
-    </p>
-    <p><b>Key Features:</b></p>
+    <p>Order fresh milk, ghee, curd, and more directly from local dairies.</p>
     <ul>
       <li>Easy dairy product ordering</li>
       <li>Track order & delivery</li>
@@ -173,24 +290,52 @@
 
   <section id="hero" class="details">
     <h2>MilkoSys Hero</h2>
-    <p>
-      MilkoSys Hero is built for delivery boys (heroes) who make sure dairy products reach customers on time.  
-      It provides an easy way to <b>view assigned orders, update delivery status, and collect payments</b>.  
-      With this app, delivery becomes smooth and well-organized.  
-    </p>
-    <p><b>Key Features:</b></p>
+    <p>Delivery app for heroes to manage assigned orders & payments.</p>
     <ul>
       <li>View daily delivery tasks</li>
       <li>Navigation & route optimization</li>
-      <li>Update order status (Delivered/Pending)</li>
+      <li>Update order status</li>
       <li>Cash & online payment support</li>
     </ul>
   </section>
 
-  <footer>
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h3>How can I download the apps?</h3>
+      <p>You can download APK files directly from this website using the "Download APK" buttons above.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Are the apps free to use?</h3>
+      <p>Yes, all MilkoSys apps are completely free to download and use.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need internet to use the apps?</h3>
+      <p>Yes, an internet connection is required for placing orders, syncing data & tracking deliveries.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
     <p>&copy; 2025 MilkoSys. All rights reserved.</p>
     <p>Contact: sudhanshushekhar692004@gmail.com | +91 8228958397</p>
+    <div class="socials">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
   </footer>
 
+  <script>
+    // FAQ Toggle
+    document.querySelectorAll(".faq-item h3").forEach(item=>{
+      item.addEventListener("click",()=>{
+        let p = item.nextElementSibling;
+        p.style.display = (p.style.display==="block") ? "none" : "block";
+      });
+    });
+  </script>
 </body>
 </html>
